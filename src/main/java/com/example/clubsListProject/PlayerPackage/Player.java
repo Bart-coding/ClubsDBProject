@@ -21,9 +21,9 @@ public class Player {
     //@JoinColumn(name="club_id" /*nazwa kolumny*/, referencedColumnName = "id" /*nazwa kolumny w powiązanej tabeli*/, nullable=true)
     @Column(name = "club_id")
     //@JoinColumn(name = "club_id")
-    private Integer clubId; //alternatywnie Club club (?)
+    private Integer clubId; //alternatywnie Club
 
-    public Player() {}
+    public Player() {} //konieczny dla Hibernate'a
 
     public Player(String firstName, String lastName, String nationality, int clubId) {
         this.firstName = firstName;

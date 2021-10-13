@@ -4,7 +4,7 @@ package com.example.clubsListProject.PlayerPackage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Players { //niekonieczna
+public class Players {
     private static List<Player> playersList = new ArrayList<>();
 
     public List<Player> getPlayersList() { //lub stworzyc klasę Players

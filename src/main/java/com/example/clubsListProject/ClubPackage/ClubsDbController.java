@@ -15,14 +15,14 @@ import java.util.List;
 @RestController
 @Validated
 @RequestMapping("/dbClubs")
-public class ClubsDbController { //toDo: rozbudowa kontrolera dla klubów, rozb. kontr. dla graczy, autoincrement, wyjątki
+public class ClubsDbController {
 
     @Autowired
     @Qualifier("clubsServImpl1")
     ClubsService clubsService;
 
     @GetMapping
-    public ResponseEntity<Object> getAll() { //List
+    public ResponseEntity<Object> getAll() {
        List<Club> allDbClubs = clubsService.getAllClubs();
        if (allDbClubs.size()!=0) {
            return new ResponseEntity<>(allDbClubs, HttpStatus.OK);
@@ -40,7 +40,7 @@ public class ClubsDbController { //toDo: rozbudowa kontrolera dla klubów, rozb.
     }
 
     @PostMapping
-    public ResponseEntity<Object> add (@RequestBody @Valid Club club) { //toDo: test z podanym zajetym id -> nadpisuje
+    public ResponseEntity<Object> add (@RequestBody @Valid Club club) {
         Club addedClub = clubsService.addClub(club);
         if (addedClub!=null)
             return new ResponseEntity<>(addedClub, HttpStatus.OK);
@@ -48,7 +48,7 @@ public class ClubsDbController { //toDo: rozbudowa kontrolera dla klubów, rozb.
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> edit (@PathVariable int id, @RequestBody @Valid Club club) { //toDo: test podania klubu bez id
+    public ResponseEntity<Object> edit (@PathVariable int id, @RequestBody @Valid Club club) {
         Club updatedClub = clubsService.updateClub(id, club);
         if (updatedClub!=null)
             return new ResponseEntity<>(updatedClub, HttpStatus.OK);

@@ -4,13 +4,12 @@ import com.example.clubsListProject.PlayerPackage.Player;
 import org.springframework.stereotype.Repository;
 
 @Repository
-//@Scope("prototype")
 public class ClubDao {
     private Clubs clubListObject = new Clubs();
 
 
     public ClubDao() {
-        clubListObject.getClubList().add( //this nie można jesli to static
+        clubListObject.getClubList().add( //this niedostepny jesli to static
                 new Club(
                         1,
                         "Chelsea",

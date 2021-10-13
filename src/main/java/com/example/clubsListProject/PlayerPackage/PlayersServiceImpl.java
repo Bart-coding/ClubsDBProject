@@ -41,7 +41,7 @@ public class PlayersServiceImpl implements PlayerService {
     @Transactional
     @Override
     public Player updatePlayer(int id, Player player)  {
-        Player playerToUpdate = playersRepository.findById(id); //throw lub if
+        Player playerToUpdate = playersRepository.findById(id);
 
         if (playerToUpdate!=null) {
             playerToUpdate.setFirstName(player.getFirstName());
@@ -49,7 +49,7 @@ public class PlayersServiceImpl implements PlayerService {
             playerToUpdate.setNationality(player.getNationality());
 
             Integer clubId = player.getClubId();
-//            if (clubsRepository.existsById(clubId) || clubId==null)
+            //if (clubsRepository.existsById(clubId) || clubId==null)
             playerToUpdate.setClubId(clubId);
 
             return playersRepository.save(playerToUpdate);
@@ -60,7 +60,7 @@ public class PlayersServiceImpl implements PlayerService {
     @Transactional
     @Override
     public boolean deletePlayer(int id) {
-        Player playerToDelete = playersRepository.findById(id); //throw lub if
+        Player playerToDelete = playersRepository.findById(id);
 
         if (playerToDelete!=null) {
             playersRepository.delete(playerToDelete);

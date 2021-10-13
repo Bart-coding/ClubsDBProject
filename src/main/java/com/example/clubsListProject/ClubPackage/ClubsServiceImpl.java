@@ -55,7 +55,7 @@ public class ClubsServiceImpl implements ClubsService {
     @Transactional
     @Override
     public boolean deleteClub(int id) {
-        Club clubToDelete = clubRepository.findById(id).get(); //throw lub if
+        Club clubToDelete = clubRepository.findById(id).get();
 
         if (clubToDelete!=null) {
             clubRepository.delete(clubToDelete);

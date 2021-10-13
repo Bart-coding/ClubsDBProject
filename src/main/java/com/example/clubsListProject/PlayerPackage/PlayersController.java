@@ -16,7 +16,7 @@ public class PlayersController {
     @Autowired
     private PlayerDao playerDao;
 
-    @GetMapping//produces json
+    @GetMapping
     public Players getPlayers() {return playerDao.getAllPlayers();}
 
     @PostMapping

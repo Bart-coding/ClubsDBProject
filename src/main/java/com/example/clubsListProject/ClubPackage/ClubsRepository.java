@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ClubsRepository extends JpaRepository<Club, Integer> { //JpaRespository
+public interface ClubsRepository extends JpaRepository<Club, Integer> { //CRUDRepository
     List<Club> findByName (String name);
     List<Club> findByCountry (String country);
     void delete (Club club);

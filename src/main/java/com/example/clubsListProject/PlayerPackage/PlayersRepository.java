@@ -8,7 +8,7 @@ import java.util.List;
 public interface PlayersRepository extends CrudRepository<Player, Integer> {
     List<Player> findAll();
     Player findById (int id);
-    List<Player> findByLastName (String lastName);///////
+    List<Player> findByLastName (String lastName);
     void delete (Player player);
     boolean existsById(Integer integer);
 }

@@ -4,14 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Clubs { //niekonieczna
+public class Clubs {
 
     private List<Club> clubList = new ArrayList<>();
-    /*private Club cl = new Club(1,"2","3");
-
-    public Club getCl() { //teraz konw. na jsona i widac to w gecie
-        return cl;
-    }*/
 
     public List<Club> getClubList() {
         return this.clubList;

@@ -16,7 +16,6 @@ public class Club {
     @Id
     //@Access(AccessType.PROPERTY) -- kiedy chcesz by Hibernate korzystał z getterów
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    /* do rozwiązania -- brak konsekwencji między autoinkrementem w bazie i w kodzie*/
     @Column(insertable = false, updatable = false)
     private Integer id; //Integer, Long
     @NotBlank //w bazie NotNull

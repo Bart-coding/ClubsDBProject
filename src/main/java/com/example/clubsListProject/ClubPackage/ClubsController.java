@@ -37,7 +37,7 @@ public class ClubsController {
         return clubsService.getAllClubs();
     }
 
-    @PostMapping //można dodać pola required
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public List<Club> addClub(@RequestBody @Valid Club club) { //required = false; inaczej club może być nullem
         int id = clubDao.getMaxClubId()+1;
@@ -51,13 +51,13 @@ public class ClubsController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteClub(@PathVariable(value = "id") int id) { //toDo: resetowanie klubu zawodnikow i trycatch
+    public ResponseEntity<Object> deleteClub(@PathVariable(value = "id") int id) {
         try {
-        /*if*/  this.clubDao.deleteClub(id);
+                this.clubDao.deleteClub(id);
                 return new ResponseEntity<>(this.clubDao.getAllClubs(), HttpStatus.OK);
         }catch (RuntimeException e) { //wejdzie w tego catcha jesli w try'u wywaliło się na linijce rzucającej ten sam wyjątek co w argumencie;
                                     // w przypadku błędu idzie "w górę" drzewa klas aż nie natrafi na obsłużenie wyjątku; jak nie trafi nawet w mainie rzuca 500
-                                    // można bez to throw obsłuży Advice
+                                    // można bez, wtedy Advice obsłuzy throwa
             return new ResponseEntity<>("Sorry, there is no club with this id.", HttpStatus.BAD_REQUEST);
         }
     }
